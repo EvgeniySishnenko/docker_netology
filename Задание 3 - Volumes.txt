@@ -5,23 +5,36 @@ docker run -it node:15.14
 2.Запустите контейнер с именем first_node из образа node версии 15.14 
 в фоновом режиме, подключив папку data из текущей директории 
 в /var/first/data контейнера
-docker run -it --rm --name first_node -v C:\Users\sishn\projects\docker_netology\var\first\data node:15.14
+docker run -it --rm --name first_node -v C:/Users/sishn/projects/docker_netology/data:/var/first/data node:15.14 /bin/sh
 
 3. Запустите контейнер с именем second_node из 
 образа node версии 15.14 в фоновом режиме, 
 подключив папку data из текущей директории в /var/second/data контейнера
-docker run -it --rm --name second_node -v C:\Users\sishn\projects\docker_netology\var\second\data node:15.14
+docker run -it --rm --name second_node -v C:/Users/sishn/projects/docker_netology/data:/var/second/data node:15.14 /bin/sh
 
 4.Подключитесь к dконтейнеру first_node с помощью exec 
 и создайте текстовый файл любого содержания в /var/first/data
 docker exec -it first_node /bin/sh
+cd var/first/data
+echo "простая строка"> someFileDocker.txt
+скрин https://skr.sh/sFxxlrvjKxx?a
 
-5. Добавьте еще один файл в папку data на хостовой машине
-я не понял в какой папке создавать и где это хостовая машина
+5. Добавьте еще один файл в dпапку data на хостовой машине
+скрин https://skr.sh/sFxvYr3m46U?a
 
 6. Подключитесь к контейнеру second_node с помощью exec 
 и получите список файлов 
 в директории /var/second/data, выведете на экран содержимое файлов
+docker exec -it second_node /bin/sh
+cd var/second/data
+скрин https://skr.sh/sFxUreOxoC2?a
 
+7. Остановите оба контейнера
+ctr + d
 
-C:/Users/sishn/projects/docker_netology/var/first/data
+8. Удалите оба контейнера
+после остановки удалились
+скрин https://skr.sh/sFxxR3TpP5S?a
+
+9. Удалите образ node версии 15.14
+docker rmi node:15.14
