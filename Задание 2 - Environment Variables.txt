@@ -1,0 +1,17 @@
+1.Загрузите образ node версии 15.14
+docker run -it node:15.14
+
+2. Запустите контейнер node в интерактивном режиме подключения терминала, 
+поименуйте его mynode, передайте две переменные среды NAME=<ваше имя> и SURNAME=<ваша фамилия>
+docker run -it --rm -e NAME=Evgenii -e SURNAME=Sishnenko --name mynode node:15.14
+
+3. В интерактивной среде выполнения node выполните скрипт, который выведет на экран приветсвтие:
+ Привет, <ваше имя> <ваша фамилия>!, эти данные должны быть получены из переменных среды
+console.log(`Привет ${process.env.NAME} ${process.env.SURNAME}`)
+скрин https://skr.sh/sFwuFDQpcbZ?a 
+
+4.Остановите контейнер 
+docker stop mynode
+
+5. Удалите образ node версии 15.14
+docker rmi 3d3f41722daf

@@ -1,0 +1,32 @@
+1. Загрузите образ busybox последней версии
+docker pull busybox
+
+2. Запустите новый контейнер busybox с командой ping сайта netology.ru, и количеством пингов 7, поименуйте контейнер pinger
+docker run -it --rm  --name pinger busybox ping netology.ru
+
+3. Выведите на список всех контейнеров - запущенных и остановленных
+docker ps -a
+
+4. Выведите на экран логи контейнера с именем pinger
+docker logs pinger
+
+5. Запустите второй раз контейнера с именем pinger
+docker run -it  --name pinger busybox ping netology.ru
+
+6. Выведите на список всех контейнеров - запущенных и остановленных
+docker ps -a
+
+7. Выведите на экран логи контейнера с именем pinger
+docker logs pinger
+
+8. Определите по логам общее количество запусков команды ping и какое общее количество отправленых запросов
+количество запусков команды ping - 43
+общее количество отправленых запросов - 43
+
+скрин https://skr.sh/sFwLR6yLVep?a
+
+9. Удалите контейнер с именем pinger
+docker container rm pinger
+
+10. Удалите образ busybox
+docker rmi busybox
